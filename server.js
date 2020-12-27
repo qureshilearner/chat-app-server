@@ -7,7 +7,7 @@ var app = express()
 const server = require('http').createServer(app)
 var io = require('socket.io')(server)
 
-let port = 4000 || process.env
+let port = 4000 || process.env.PORT
 let db
 // currentUser = ''
 
