@@ -14,7 +14,7 @@ let db
 app.use(body.json())
 app.use(body.urlencoded({ extended: true }))
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:4080')
+  res.header('Access-Control-Allow-Origin', '*')
   res.set('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
   res.header('Access-Control-Allow-Headers', '*')
   next()
@@ -145,6 +145,10 @@ app.post('/create-user', async (req, res) => {
     console.log(e)
     res.json({ success: false })
   }
+})
+
+app.get('/', (_, res) => {
+  res.send(<h1>Compiled!</h1>)
 })
 
 app.post('/logout', async (req, res) => {
